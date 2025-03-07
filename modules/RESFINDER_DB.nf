@@ -1,6 +1,6 @@
 process RESFINDER_DB {
     label 'small'
-    container 'ebird013/resfinder:4.4.2'
+    container 'genomicepidemiology/resfinder:latest'
 
     output:
         path("./db_resfinder"), emit: resfinder_db
