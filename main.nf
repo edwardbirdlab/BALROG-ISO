@@ -81,7 +81,7 @@ workflow {
 
         }
 
-    if (params.workflow_opt == 'sr_multiqc') {
+    if (params.workflow_opt == 'multiqc') {
 
         SR_MULTIQC()
 

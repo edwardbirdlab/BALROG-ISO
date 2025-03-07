@@ -12,7 +12,7 @@ workflow SR_MULTIQC_SW {
 
     main:
 
-        ch_multiqc_yaml    =  Channel.fromPath("${projectDir}/configs/multiqc/sr_multiqc.yaml")
+        ch_multiqc_yaml    =  Channel.fromPath("${projectDir}/configs/multiqc/balrog_iso.yaml")
 
         ch_multiqc_analysisdir = Channel.fromPath("${launchDir}/${params.project_name}")
 
