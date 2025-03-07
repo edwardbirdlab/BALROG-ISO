@@ -1,6 +1,6 @@
 process RESFINDER {
    label 'lowmemlong'
-    container 'ebird013/resfinder:4.4.2'
+    container 'genomicepidemiology/resfinder:latest'
 
     input:
         tuple val(sample), file(fasta)
