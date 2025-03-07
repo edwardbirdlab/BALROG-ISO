@@ -12,6 +12,11 @@ process SPADES_GENOME {
 
     """
     spades.py --isolate -m ${task.memory.toGiga()} --pe1-1 ${fastq1} --pe1-2 ${fastq2} -o ${sample} -t ${task.cpus}
-    cp ${sample}/scaffolds.fasta ${sample}_scaffolds.fasta 
+    cp ${sample}/scaffolds.fasta ${sample}_scaffolds.fasta
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        spades: \$(spades.py -v 2>&1 | sed -e "s/SPAdes genome assembler //g")
+    END_VERSIONS 
     """
 }

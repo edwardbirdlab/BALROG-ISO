@@ -1,6 +1,6 @@
 process GTDB_TK {
     label 'plasmer'
-    container 'library://edwardbirdlab/bara/gtdbtk_2:latest'
+    container 'quay.io/biocontainers/gtdbtk:2.4.0--pyhdfd78af_2'
 
     input:
         tuple val(sample), file(fasta)
@@ -17,5 +17,10 @@ process GTDB_TK {
     mkdir fasta_dir
     cp ${fasta} fasta_dir
     gtdbtk classify_wf --out_dir ${sample} --prefix ${sample} --genome_dir fasta_dir --cpus ${task.cpus} --extension fasta
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        gtdbtk: \$(gtdbtk --version 2>&1 | sed -e 's/gtdbtk: version \\([0-9.]*\\).*/\\1/')
+    END_VERSIONS 
     """
 }
