@@ -15,7 +15,7 @@ process RESFINDER {
     script:
 
     """
-    python3 -m resfinder -o ./${sample} -l 0.6 -t 0.8 -ifa ${fasta} -acq -db_res ./${db} -b /opt/ncbi-blast-2.15.0+/bin/blastn -k /opt/kma/kma
+    python3 -m resfinder -o ./${sample} -l 0.6 -t 0.8 -ifa ${fasta} -acq -db_res ./${db}
     cp ./${sample}/ResFinder_Resistance_gene_seq.fsa Resfinder_geneseqs_${sample}.fsa
     cp ./${sample}/ResFinder_results_tab.txt ${sample}_resfinder_tab.txt
 
