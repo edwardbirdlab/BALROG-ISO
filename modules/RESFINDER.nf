@@ -15,6 +15,7 @@ process RESFINDER {
     script:
 
     """
+    sed -i 's/Cephalotin/Cephalothin/g' ./${db}/phenotypes.txt
     python3 -m resfinder -o ./${sample} -l 0.6 -t 0.8 -ifa ${fasta} -acq -db_res ./${db}
     cp ./${sample}/ResFinder_Resistance_gene_seq.fsa Resfinder_geneseqs_${sample}.fsa
     cp ./${sample}/ResFinder_results_tab.txt ${sample}_resfinder_tab.txt
