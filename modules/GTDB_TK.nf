@@ -11,7 +11,7 @@ process GTDB_TK {
     script:
     """
     mkdir db
-    tar -xf gtdbtk_r207_v2_data.tar.gz -C db --strip-components=1
+    tar -xf *.tar.gz -C db --strip-components=1
     GTDBTK_DATA_PATH="db"
     mkdir fasta_dir
     cp ${fasta} fasta_dir
