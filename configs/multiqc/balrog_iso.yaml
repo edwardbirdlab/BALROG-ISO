@@ -12,13 +12,13 @@ module_order:
     path_filters: SHORT_READ_ISOLATE/READ_QC_SR/RAW_FASTQC/*/*_fastqc.zip
 - fastp:
     name: FastP
-    path_filters: SR_QC_ONLY/READ_QC_SR/FASTP/*.json 
+    path_filters: SHORT_READ_ISOLATE/READ_QC_SR/FASTP/*.json 
 - fastqc:
     name: FastQC (Final_QC)
-    path_filters: SR_QC_ONLY/READ_QC_SR/TRIM_FASTQC/*/*_fastqc.zip
+    path_filters: SHORT_READ_ISOLATE/READ_QC_SR/TRIM_FASTQC/*/*_fastqc.zip
 - busco:
     name: BUSCO
-    path_filters: SR_QC_ONLY/SHORT_READ_ISOLATE_ASSEMBLY/BUSCO_GENOME/*/*_busco.txt
+    path_filters: SHORT_READ_ISOLATE/SHORT_READ_ISOLATE_ASSEMBLY/BUSCO_GENOME/*/*_busco.txt
 - quast:
-    name: Metagenome Assembly (FLYE)
-    path_filters: SR_QC_ONLY/SHORT_READ_ISOLATE_ASSEMBLY/QUAST_GENOME/*/report.tsv
+    name: Assembly Stats
+    path_filters: SHORT_READ_ISOLATE/SHORT_READ_ISOLATE_ASSEMBLY/QUAST_GENOME/*/report.tsv
