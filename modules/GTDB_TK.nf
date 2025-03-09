@@ -3,8 +3,7 @@ process GTDB_TK {
     container 'quay.io/biocontainers/gtdbtk:2.4.0--pyhdfd78af_2'
 
     input:
-        tuple val(sample), file(fasta)
-        path(db)
+        tuple val(sample), file(fasta), path(db)
     output:
         path("./${sample}"), emit: results
 

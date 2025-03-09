@@ -51,10 +51,12 @@ workflow IDENTIFICATION {
 
             }
 
+        ch_for_gtdbtk = chromosomal.join(ch_gtdbtk_db)
+
 
         //BARRNAP(chromosomal)
         //BLAST_16S(BARRNAP.out.barrnap_results, ch_ncbi16S_db)
-        GTDB_TK(chromosomal, ch_gtdbtk_db)
+        GTDB_TK(ch_for_gtdbtk)
         //SYLPH_SKETCH_GTDB(ch_gtdbtk_db, ref_gen)
 
         //ch_sylphdb_reads_nh = trimmed_reads_nh.combine(SYLPH_SKETCH_GTDB.out.gtdb_sylph)
