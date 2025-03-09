@@ -51,7 +51,9 @@ workflow IDENTIFICATION {
 
             }
 
+        ch_gtdbtk_db.view()
         ch_for_gtdbtk = chromosomal.join(ch_gtdbtk_db)
+        ch_for_gtdbtk.view()
 
 
         //BARRNAP(chromosomal)
