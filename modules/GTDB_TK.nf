@@ -15,7 +15,7 @@ process GTDB_TK {
     GTDBTK_DATA_PATH="db"
     mkdir fasta_dir
     cp ${fasta} fasta_dir
-    gtdbtk classify_wf --out_dir ${sample} --prefix ${sample} --genome_dir fasta_dir --cpus ${task.cpus} --extension fasta
+    gtdbtk classify_wf --out_dir ${sample} --prefix ${sample} --genome_dir fasta_dir --cpus ${task.cpus} --extension fasta --skip_ani_screen
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
