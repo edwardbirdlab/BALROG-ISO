@@ -20,9 +20,9 @@
 <!-- PROJECT LOGO -->
 <br />
 
-<h3 align="center">BALROG-MON</h3>
+<h3 align="center">BALROG-ISO</h3>
   <p align="center">
-    Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Oxford Nanopore
+    Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes
 
   <p align="center">
     <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
@@ -45,23 +45,23 @@
 <!-- ABOUT THE PROJECT -->
 
 
-## About BALROG-MON
+## About BALROG-ISO
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-BALROG-MON (Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Oxford Nanopore) is a comprehensive high throughput Nextflow pipeline built to utilize Q20+ Oxford Nanopore long-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from metagenomic samples. While AMR characterization is the main goal of BALROG-MON, it also provides subworkflows for many related analyses customizable to users' needs, such as assembly-free annotation, pathogen detection, and metagenomic community analysis of bacteria, viruses, and other microorganisms in samples. 
+BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes) is a comprehensive high throughput Nextflow pipeline built to utilize XXX short-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from whole genome sequences of bacterial isolates. While AMR characterization is the main goal of BALROG-ISO, it also provides the taxonomic classification, gene identities, and assignment of gene origin (i.e. plasmid or chromosome) for the submitted isolate(s). 
 
 > [!NOTE]
-> Updates to BALROG-MON may occur periodically to help continually improve the pipeline. If you have any requests or recommended changes you'd like to see (i.e. usage with other data types), please reach out via email (edwardbirdlab@gmail.com | edwardbird@ksu.edu) or <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.
+> Updates to BALROG-ISO may occur periodically to help continually improve the pipeline. If you have any requests or recommended changes you'd like to see (i.e. usage with other data types), please reach out via email (edwardbirdlab@gmail.com | edwardbird@ksu.edu) or <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.
 > <br />
 ><br />
-> If you experience any trouble or find bugs when running BALROG-MON, please <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">report issues or bugs</a> and they will be addressed as soon as possible.
+> If you experience any trouble or find bugs when running BALROG-ISO, please <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">report issues or bugs</a> and they will be addressed as soon as possible.
 
 <h3 align="center">Not the BALROG pipeline you're looking for?</h3>
  <p align="center">
-   <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">BALROG-MSR: Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Short Read</a>
+   <a href="https://github.com/edwardbirdlab/BALROG-MSR">BALROG-MSR: Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Short Read</a>
    <br />
-   <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">BALROG-ISO: Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes</a>
+   <a href="https://github.com/edwardbirdlab/BALROG-MON">BALROG-MON: Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Oxford Nanopore</a>
 
 ## Workflow Overview
 
@@ -81,9 +81,8 @@ BALROG-MON (Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenom
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 - <a href="#readme-getting-started">Getting Started</a>
-- <a href="#readme-running-balrog">Running BALROG-MON</a>
+- <a href="#readme-running-balrog">Running BALROG-ISO</a>
 - <a href="#readme-core-steps">Core Steps of Workflow</a>
-- <a href="#readme-optional-steps">Optional Steps of Workflow</a>
 - <a href="#readme-citations">Citations</a>
 - <a href="#readme-license">License</a>
 - <a href="#readme-contact">Contact Information</a>
@@ -97,11 +96,11 @@ Before you get too far along, familiarize yourself with this section to make sur
 
 ### 1. What Data Do I Need?
 
-BALROG-MON in its current form expects Q20+ Oxford Nanopore Long Read Metagenomic Sequencing. BALROG-MON can run in "Assembly-Free" mode or assembles a metagenome using metaFlye, allowing for the analysis of low and high coverage metagenomes. BALROG-MON in its standard configuration will require 100GB of RAM.
+BALROG-ISO in its current form expects XXX. BALROG-ISO in its standard configuration will require XXXGB of RAM.
 <br />
 <br />
 > [!NOTE]
->**If you would like to run BALROG-MON with older, non-Q20+ Nanopore data, feel free to <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
+>**If you would like to run BALROG-ISO with XXX data, feel free to <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
 
 ### 2. Dependencies
 
@@ -124,7 +123,7 @@ Method 2 - Clone Repo
 
 ### 4. Creating a Sample Sheet
 
-BALROG-MON takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. 
+BALROG-ISO takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. 
 <br />
 <br />
 Example Format:
@@ -143,13 +142,13 @@ When creating a Nextflow config, ensure a container runtime is enabled (Singular
 
 ### 6. Pipeline Configuration
 
-If you want to change any parameters of BALROG-MON from its default options, they can be changed using the "nextflow.config" file. Configurable parameters will be outlined in the detailed sections below, as well as in the config file.
+If you want to change any parameters of BALROG-ISO from its default options, they can be changed using the "nextflow.config" file. Configurable parameters will be outlined in the detailed sections below, as well as in the config file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a name="readme-running-balrog"></a>
-<!-- RUNNING BALROG-MON -->
-## Running BALROG-MON
+<!-- RUNNING BALROG-ISO -->
+## Running BALROG-ISO
 
 1. Running the whole pipeline
 ```sh
@@ -226,61 +225,11 @@ _**Sequence Processing QC**_
 - [CheckM](https://github.com/Ecogenomics/CheckM)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a name="readme-optional-steps"></a>
-<!-- OPTIONAL STEPS OF WORKFLOW -->
-## Optional Steps of Workflow
-
-### 1. Preprocessing
-
-_**Standardize Read Names**_
-
-- Included Python script (useful if you have long read names)
-
-_**Remove Human DNA**_
-
-- [minimap2](https://github.com/lh3/minimap2) : Mapping to human genome
-- [SAMtools](https://github.com/samtools/samtools) : Extracting non-human reads names
-- [Seqtk](https://github.com/lh3/seqtk) : Extract non-human reads 
-
-_**Remove Host DNA**_
-
-- [minimap2](https://github.com/lh3/minimap2) : Mapping to host genome
-- [SAMtools](https://github.com/samtools/samtools) : Extracting non-host reads names
-- [Seqtk](https://github.com/lh3/seqtk) : Extract non-host reads 
-
-### 2. Read-Based Identification
-
-_**Pathogen Detection (Optional for "Assembled" Only)**_
-- [Kraken 2](https://github.com/DerrickWood/kraken2) (standard database)
-  <br />
-  _Parameters_
-  - report-minimizer-data
-
-  - minimum-hit-groups 3
-   
-_**Community Analysis**_
-> [!NOTE]
-> BALROG-MON does not create a graphical summary of pathogen detection and community analysis results. However, results are readily compatible for visualization using [Pavian](https://github.com/fbreitwieser/pavian).
-
-- [Kraken 2](https://github.com/DerrickWood/kraken2) (standard database)
-- [Bracken](https://github.com/jenniferlu717/Bracken)
-   
-### 4. ARG and Mobility Annotation
-
-_**Multi AMR Annotation**_
-> [!NOTE]
-> CARD is run by defualt, however it can be switched to include additional ARG databases by setting params.cardonly = TRUE
-
-- [CARD](https://card.mcmaster.ca/)
-- [AMRFinder Plus](https://github.com/ncbi/amr?tab=readme-ov-file)
-- [Resfinder](https://github.com/cadms/resfinder)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <a name="readme-citations"></a>
 <!-- CITATIONS -->
 ## Citations
 
-As there is currently no paper associated with BALROG-MON, please cite this Github page. Also, I feel free to contact me (edwardbirdlab@gmail.com | edwardbird@ksu.edu) to let me know!
+As there is currently no paper associated with BALROG-ISO, please cite this Github page. Also, I feel free to contact me (edwardbirdlab@gmail.com | edwardbird@ksu.edu) to let me know!
 
 Many tools are used in this pipeline and its respective options. See 'CITATION.md' for the list of all tools used in this pipeline.
 
