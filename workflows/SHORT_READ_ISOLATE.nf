@@ -25,16 +25,8 @@ workflow SHORT_READ_ISOLATE {
         
         PLASMID_PREDICTION(SHORT_READ_ISOLATE_ASSEMBLY.out.unclassed_genome)
 
-        //ASSEMBLY_QC(PLASMID_PREDICTION.out.all, READ_QC.out.trimmed_fastq)
+        IDENTIFICATION(SHORT_READ_ISOLATE_ASSEMBLY.out.unclassed_genome)
 
-        //FUNCTIONAL_ANNOTATION(PLASMID_PREDICTION.out.all)
-
-        IDENTIFICATION(PLASMID_PREDICTION.out.all)
-
-        //ARG_GET_DBS()
-
-        //CUSTOM_ARG_DB(ARG_GET_DBS.out.all_fa)
-
-        MULTI_AMR(PLASMID_PREDICTION.out.all)
+        MULTI_AMR(SHORT_READ_ISOLATE_ASSEMBLY.out.unclassed_genome)
 
 }

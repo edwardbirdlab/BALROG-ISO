@@ -11,6 +11,7 @@ include { SPADES_GENOME as SPADES_GENOME } from '../modules/SPADES_GENOME.nf'
 include { QUAST as QUAST_GENOME } from '../modules/QUAST.nf'
 include { BUSCO as BUSCO_GENOME } from '../modules/BUSCO.nf'
 include { BUSCO_DB as BUSCO_DB } from '../modules/BUSCO_DB.nf'
+include { PROKKA as PROKKA } from '../modules/PROKKA.nf'
 
 
 workflow SHORT_READ_ISOLATE_ASSEMBLY {
