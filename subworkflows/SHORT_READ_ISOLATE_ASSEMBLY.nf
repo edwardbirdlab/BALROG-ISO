@@ -46,6 +46,9 @@ workflow SHORT_READ_ISOLATE_ASSEMBLY {
         //Busco Report - Auto-lineage
         BUSCO_GENOME(SPADES_GENOME.out.genome, ch_busco_db)
 
+        //Run porkka
+        PROKKA(SPADES_GENOME.out.genome)
+
     emit:
         unclassed_genome   = SPADES_GENOME.out.genome  //   channel: [ val(sample), path("${sample}_scaffolds.fasta")]
 

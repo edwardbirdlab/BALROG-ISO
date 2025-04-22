@@ -16,9 +16,6 @@ workflow READ_QC_SR {
     take:
         fastqs                                          // channel: [val(sample), [fastq_1, fastq_2]]
     main:
-        // Create output channels
-        //ch_trimmed_fastq        = Channel.empty()
-
 
         RAW_FASTQC(fastqs)
         FASTP(fastqs)
