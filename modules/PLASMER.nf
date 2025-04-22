@@ -12,6 +12,7 @@ process PLASMER {
         tuple val(sample), path("*.predProb.tsv"), emit: probability
         tuple val(sample), path("*.predPlasmids.taxon"), emit: pred_taxon, optional: true
         tuple val(sample), path("*.predClass.tsv"),  path("*.predProb.tsv"), path("${fasta}"), emit: for_sort
+        path("versions.yml"), emit: versions
 
         
     script:
@@ -29,5 +30,11 @@ process PLASMER {
     cd results
     cp * ..
     cd ..
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        plasmer: \$(/scripts/Plasmer -v 2>&1 | sed -e "s/Plasmer //g")
+    END_VERSIONS 
+    """
     """
 }

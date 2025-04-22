@@ -7,6 +7,7 @@ process SPADES_GENOME {
     output:
         tuple val(sample), path("${sample}_scaffolds.fasta"), emit: genome
         tuple val(sample), path("./${sample}"), emit: spades_genome_dir
+        path("versions.yml"), emit: versions
 
     script:
 

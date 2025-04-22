@@ -6,6 +6,7 @@ process GTDB_TK {
         tuple val(sample), file(fasta), path(db)
     output:
         path("./${sample}"), emit: results
+        path("versions.yml"), emit: versions
 
 
     script:
