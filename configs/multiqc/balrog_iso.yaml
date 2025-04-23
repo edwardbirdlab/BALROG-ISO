@@ -3,6 +3,7 @@ run_modules:
 - fastp
 - busco
 - quast
+- gtdbtk
 sp: {}
 module_order:
 
@@ -22,3 +23,6 @@ module_order:
 - quast:
     name: Assembly Stats
     path_filters: SHORT_READ_ISOLATE/SHORT_READ_ISOLATE_ASSEMBLY/QUAST_GENOME/*/report.tsv
+- gtdbtk:
+    name: GTDB-tk Classify
+    path_filters: SHORT_READ_ISOLATE/IDENTIFICATION/GTDB_TK/*/*.summary.tsv
