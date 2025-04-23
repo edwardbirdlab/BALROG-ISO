@@ -1,6 +1,6 @@
 process MULTIQC {
    label 'lowmemnk'
-    container 'ebird013/multiqc:1.22.2'
+    container 'quay.io/biocontainers/multiqc:1.28--pyhdfd78af_0'
 
     input:
         val(yaml)
