@@ -36,5 +36,4 @@ process PLASMER {
         plasmer: \$(/scripts/Plasmer -v 2>&1 | sed -e "s/Plasmer //g")
     END_VERSIONS 
     """
-    """
 }
