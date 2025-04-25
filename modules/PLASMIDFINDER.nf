@@ -13,6 +13,6 @@ process PLASMIDFINDER {
 
     """
     mkdir -p ${sample}_plasmidfinder
-    plasmidfinder -i ${fasta} -o ${sample}_plasmidfinder
+    /usr/src/plasmidfinder.py -i ${fasta} -o ${sample}_plasmidfinder
     """
 }
