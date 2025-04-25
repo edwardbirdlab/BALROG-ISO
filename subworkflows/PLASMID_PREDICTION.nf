@@ -13,6 +13,7 @@ include { QUAST as QUAST_PLASMID} from '../modules/QUAST.nf'
 include { QUAST as QUAST_CHROMOSOMAL} from '../modules/QUAST.nf'
 include { QUAST as QUAST_SHORT} from '../modules/QUAST.nf'
 include { PLASMER_DB as PLASMER_DB } from '../modules/PLASMER_DB.nf'
+include { PLASMIDFINDER as PLASMIDFINDER } from '../modules/PLASMIDFINDER.nf'
 
 
 workflow PLASMID_PREDICTION {
@@ -41,6 +42,8 @@ workflow PLASMID_PREDICTION {
         QUAST_PLASMID(PLASMER_SORT.out.plasmid)
         QUAST_CHROMOSOMAL(PLASMER_SORT.out.chromosome)
         QUAST_SHORT(PLASMER_SORT.out.tooshort)
+
+        PLASMIDFINDER(PLASMER_SORT.out.plasmid)
 
     emit:
         plasmids         =       PLASMER_SORT.out.plasmid        // tuple val(sample), path("*plasmid.fasta"), emit: plasmid
