@@ -13,8 +13,8 @@ process SRA_HS {
     script:
 
     """
-    gunzip -c ${r1} > ${sample}_raw_1.fq
-    gunzip -c ${r2} > ${sample}_raw_2.fq
+    gunzip -c ${R1} > ${sample}_raw_1.fq
+    gunzip -c ${R2} > ${sample}_raw_2.fq
 
     scrub.sh -p ${task.cpus} -i ${sample}_raw_1.fq -o ${sample}_decon_1.fastq 2>&1 | tee ${sample}_scrub.log
     scrub.sh -p ${task.cpus} -i ${sample}_raw_2.fq -o ${sample}_decon_2.fastq 2>&1 | tee -a ${sample}_scrub.log
