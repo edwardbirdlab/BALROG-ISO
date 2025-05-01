@@ -1,6 +1,6 @@
 process BUSCO {
     label 'lowmem'
-    container 'ebird013/busco:5.7.1'
+    container 'ezlabgva/busco:v5.8.2_cv1'
 
     input:
         tuple val(sample), file(fasta)

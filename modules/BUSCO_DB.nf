@@ -1,6 +1,6 @@
 process BUSCO_DB {
     label 'lowmem'
-    container 'ebird013/busco:5.7.1'
+    container 'ezlabgva/busco:v5.8.2_cv1'
         
     output:
         path("./busco_downloads"), emit: busco_db
