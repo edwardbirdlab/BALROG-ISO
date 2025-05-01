@@ -12,10 +12,13 @@ process AMRFINDER {
 
     script:
 
+    def sp_arg = params.amrfinder_lineage ? "--organism ${params.amrfinder_lineage}" : ""
+
     """
     mkdir tmpamr
     TMPDIR="./tmpamr"
-    amrfinder -d ${db}/latest -n ${fasta} --plus -o ${sample}_AMRFinder.tsv
+    amrfinder -d ${db}/latest -n ${fasta} --plus -o ${sample}_AMRFinder.tsv \\
+    $sp_arg
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
