@@ -14,7 +14,7 @@ process RESFINDER {
 
     script:
 
-    def sp_arg = params.resfinder_lineage ? "--species ${params.resfinder_lineage}" : ""
+    def sp_arg = params.resfinder_lineage ? "--species '${params.resfinder_lineage}'" : ""
 
     """
     sed -i 's/Cephalotin/Cephalothin/g' ./${db}/phenotypes.txt
