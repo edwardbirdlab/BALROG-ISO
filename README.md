@@ -14,7 +14,7 @@
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
-[![DOI](https://zenodo.org/badge/450245642.svg)](https://zenodo.org/doi/10.5281/zenodo.11110897)
+[![DOI](]()
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
@@ -49,7 +49,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes) is a comprehensive high throughput Nextflow pipeline built to utilize XXX short-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from whole genome sequences of bacterial isolates. While AMR characterization is the main goal of BALROG-ISO, it also provides the taxonomic classification, gene identities, and assignment of gene origin (i.e. plasmid or chromosome) for the submitted isolate(s). 
+BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes) is a comprehensive high throughput Nextflow pipeline built to utilize next generaion short-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from whole genome sequences of bacterial isolates. While AMR characterization is the main goal of BALROG-ISO, it also provides the taxonomic classification, gene identities, and assignment of gene origin (i.e. plasmid or chromosome) for the submitted isolate(s). 
 
 > [!NOTE]
 > Updates to BALROG-ISO may occur periodically to help continually improve the pipeline. If you have any requests or recommended changes you'd like to see (i.e. usage with other data types), please reach out via email (edwardbirdlab@gmail.com | edwardbird@ksu.edu) or <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.
@@ -67,9 +67,9 @@ BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate w
 
 <picture>
 
-  <source media="(prefers-color-scheme: dark)" srcset="images/pipeline_outline_darkmode.png"> 
-  <source media="(prefers-color-scheme: light)" srcset="images/pipeline_outline_lightmode.png">
-  <img alt="Nextflow Logo" src="images/pipeline_outline_lightmode.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/BALROG-ISOdarkmode.png"> 
+  <source media="(prefers-color-scheme: light)" srcset="images/BALROG-ISOlightmode.png">
+  <img alt="Nextflow Logo" src="images/BALROG-ISOlightmode.png">
 </picture>
 
 *See sections below for details on subworkflows
@@ -96,15 +96,15 @@ Before you get too far along, familiarize yourself with this section to make sur
 
 ### 1. What Data Do I Need?
 
-BALROG-ISO in its current form expects XXX. BALROG-ISO in its standard configuration will require XXXGB of RAM.
+BALROG-ISO in its current form expects Illuminia/Aviti paired-end, short-read data. BALROG-ISO in its standard configuration will require 100GB of RAM.
 <br />
 <br />
 > [!NOTE]
->**If you would like to run BALROG-ISO with XXX data, feel free to <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
+>**If you would like to run BALROG-ISO with long-read data, feel free to <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
 
 ### 2. Dependencies
 
-All dependencies are managed via Docker Containers and hosted on DockerHub. One of the following container runtime software packages will be required:
+All dependencies are managed via Docker Containers and hosted on DockerHub. In addion to Nextflow, one of the following container runtime software packages will be required:
 <br />
 - Nextflow (>= 23.04.0.5857) - [Install Nextflow](https://www.nextflow.io/docs/latest/install.html)
 - Docker/Singularity/Apptainer - [Install Docker](https://docs.docker.com/engine/install/) - [Install Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) - [Install Apptainer](https://apptainer.org/docs/admin/main/installation.html)
@@ -123,14 +123,14 @@ Method 2 - Clone Repo
 
 ### 4. Creating a Sample Sheet
 
-BALROG-ISO takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. 
+BALROG-ISO takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. This verion does not automatically combine reads of the same sample name, please combine sequencing runs manually before starting the pipeline.
 <br />
 <br />
 Example Format:
 ```
-sample,path,reference_genome
-Sample_Name_1,/absolute/path/to/sample1.fastq.gz,/absolute/path/to/reference_genome_1.fna
-Sample_Name_2,/absolute/path/to/sample2.fastq.gz,/absolute/path/to/reference_genome_1.fna
+sample,r1,r2
+Sample_Name_1,/absolute/path/to/sample1_R1.fastq.gz,/absolute/path/to/sample1_R2.fastq.gz
+Sample_Name_2,/absolute/path/to/sample2_R1.fastq.gz,/absolute/path/to/sample2_R2.fastq.gz
 ```
 
 ### 5. Nextflow Configuration
@@ -142,8 +142,22 @@ When creating a Nextflow config, ensure a container runtime is enabled (Singular
 
 ### 6. Pipeline Configuration
 
-If you want to change any parameters of BALROG-ISO from its default options, they can be changed using the "nextflow.config" file. Configurable parameters will be outlined in the detailed sections below, as well as in the config file.
+If you want to change any parameters of BALROG-ISO from its default options, they can be changed using the "nextflow.config" file, or via command line. Configurable parameters will be outlined in the detailed sections below, as well as in the config file.
 
+Required Paramters: <br />
+'--samplesheet /path/to/samplesheet' <br />
+'--run_name "NameOfRun"' <br />
+<br />
+Optional Paramaters <br />
+'--sequencing_adapter_type  illuminia' (illuminia, Aviti, Custom - Deualt: illuminia) - sets which adapter set to use <br />
+'--custom_sequencing_adapter_r1 "ATGCATGC"' (Defualt: NaN) - sequence of read 1 adapter <br />
+'--custom_sequencing_adapter_r2 "ATGCATGC"' (Defualt: NaN) - sequence of read 1 adapter <br />
+'--fastp_minlen 100' (Defualt: 100) - The minimum readlength <br />
+'--fastp_q 20' (Defualt: 20) - The minimum q-score threshold <br />
+'--busco_lineage bacteria_odb10' (Defualt: bacteria_odb10) - Sets which busco lineage to use, recommended to change if you have a expected taxon <br />
+'--amrfinder_lineage insert_examle' (Defualt: NaN) - Enables species specific modeles in AMRFinderPlus, see AMRFinder documentation for supported species and how to supply the name of them <br />
+'--resfinder_lineage insert_example' (Defualt: NaN) - Enables species specific modeles in ResFinder, see ResFinder documentation for supported species and how to supply the name of them <br />
+ 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a name="readme-running-balrog"></a>
@@ -164,65 +178,62 @@ nextflow run /path/to/edwardbirdlab/BALROG-MON -c /path/to/config.cfg --workflow
 <!-- CORE STEPS OF WORKFLOW -->
 ## Core Steps of Workflow
 
-### 1. Preprocessing
+### 1. Quality Control
 
-_**Trimming & Raw QC**_
+_**Raw QC**_
 
 - [FastQC](https://github.com/s-andrews/FastQC) : Raw Read
-- [Porechop](https://github.com/rrwick/Porechop)
-- [chopper](https://github.com/wdecoster/chopper)
-    <br />
-    _Parameters_
-    - params.chopper_minlen = (defualt = 500)
-  
-    - params.chopper_averagequality = (defualt = 20)
+
+_**Trimming**_
+
+- [fastp](https://github.com/OpenGene/fastp)
+
+_**Final QC**_
 - [FastQC](https://github.com/s-andrews/FastQC) : Trimmed Read
 
-_**Final Read QC**_
+### 2. Read Assembly
 
-- [MultiQC](https://github.com/MultiQC/MultiQC)
+_**Genome Assembly**_
 
-### 2. Read-Based Identification
+- [SPAdes](https://github.com/ablab/spades)
 
-_**Pathogen Detection (Core Step for "Assembly Free" Only)**_
+_**Assembly Stats**_
 
-- [Kraken 2](https://github.com/DerrickWood/kraken2) (standard database)
+- [QUAST](https://github.com/ablab/quast) : Assembly Metrics Report
 
-### 3. Sequence Processing
+_**Genome Completeness**_
 
-_**Assembly**_
+- [BUSCO](https://gitlab.com/ezlab/busco): Single-Copy Ortholog "Completeness"
 
-- "Assembly Free"
-    <br />
-    - [Seqtk](https://github.com/lh3/seqtk) : Convert fastq to fasta
-  
-  **OR**
-    <br />
-- "Assembled"
-    <br />
-    - [metaFlye](https://github.com/mikolmogorov/Flye) : Metagenomic assembly
+### 3. Taxonomic Classification
 
-    - [Kraken 2](https://github.com/DerrickWood/kraken2) (standard database) : Reassign sequence identities 
+- [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk)
 
-_**Sequence Processing QC**_
+### 4. Annotation
 
-- [QUAST](https://github.com/ablab/quast)
-
-### 4. ARG & Mobility Annotation
-
+_**Sequence Origin Assignment**_
 - [Plasmer](https://github.com/nekokoe/Plasmer) : Plasmid prediction
     <br />
     _Parameters_
     - params.plasmer_min_len = (defualt = 500)
        
     - params.plasmer_max_len = (defualt = 500000)
-   
-- [CARD](https://card.mcmaster.ca/) 
 
-### 5. Binning
+_**Functional Genome Annotation**_
+- [Prokka](https://github.com/tseemann/prokka)
 
-- [LRBinner](https://github.com/anuradhawick/LRBinner)
-- [CheckM](https://github.com/Ecogenomics/CheckM)
+_**MultiAMR Resistance Gene Annotation**_
+- [hAMRonization](https://github.com/pha4ge/hAMRonization) : Unified ARG Results Report from...
+    <br />
+          1) [CARD](https://card.mcmaster.ca/) using [RGI](https://github.com/arpcard/rgi)
+    <br />
+          2) [AMRFinderPlus](https://github.com/ncbi/amr)
+    <br />
+          3) [ResFinder](https://github.com/genomicepidemiology/resfinder)
+
+### 5. Output Collection and Summary
+
+- [MultiQC](https://github.com/MultiQC/MultiQC)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a name="readme-citations"></a>
