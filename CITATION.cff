@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: 'BALROG-MON'
+title: 'BALROG-ISO'
 message: 'If you use this software, please cite it as below.'
 type: software
 authors:
@@ -10,13 +10,22 @@ authors:
     orcid: 'https://orcid.org/0009-0006-3782-9367'
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.11110897
+    value: 
     description: Zenodo DOI
-repository-code: 'https://github.com/edwardbirdlab/BALROG-MON'
+repository-code: 'https://github.com/edwardbirdlab/BALROG-ISO'
 abstract: >-
-    Bacterial Antimicrobial Resistance annOtation of Genomes - Metagenomic Oxford Nanopore
+    Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate
 keywords:
   - nextflow
-  - oxford
+  - metagenome
+  - amr
+  - antibiotic
+  - amrfinder
+  - resfinder
+  - card
+  - resistance
+  - isolate
+  - clinical
+  - enviromental
   - short read
-license: PDDL-1.0
+license: MIT
