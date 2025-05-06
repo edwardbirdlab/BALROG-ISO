@@ -10,5 +10,3 @@ vim samplesheet.csv # create a samplesheet of your input files
 vim nextflow.config # edit nextflow config to have your samplesheet and preferred runtype
 sbatch balrog.slurm
 ```
-
-This file and all files in this directory are in the public domain. 
