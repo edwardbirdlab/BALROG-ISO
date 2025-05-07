@@ -1,7 +1,3 @@
-<h3 align="center">This pipeline is will take the Isolate short read portions of BALROG-MON and make it its own pipeline. This is still a work in progress. Ignore the rest of this readme it has not been updated, and still corresponds to BALROG-MON</h3>
-
-<br />
-
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
@@ -22,12 +18,12 @@
 
 <h3 align="center">BALROG-ISO</h3>
   <p align="center">
-    Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes
+    Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genome
 
   <p align="center">
-    <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/edwardbirdlab/BALROG-ISO/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/edwardbirdlab/BALROG-ISO/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -49,13 +45,13 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genomes) is a comprehensive high throughput Nextflow pipeline built to utilize next generaion short-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from whole genome sequences of bacterial isolates. While AMR characterization is the main goal of BALROG-ISO, it also provides the taxonomic classification, gene identities, and assignment of gene origin (i.e. plasmid or chromosome) for the submitted isolate(s). 
+BALROG-ISO (Bacterial Antimicrobial Resistance annOtation of Genomes - ISOlate whole genome) is a comprehensive high throughput Nextflow pipeline built to utilize next generaion short-reads for the investigation of bacterial antimicrobial resistance (AMR) and its mobility from whole genome sequences of bacterial isolates. While AMR characterization is the main goal of BALROG-ISO, it also provides the taxonomic classification, gene identities, and assignment of gene origin (i.e. plasmid or chromosome) for the submitted isolate(s). 
 
 > [!NOTE]
-> Updates to BALROG-ISO may occur periodically to help continually improve the pipeline. If you have any requests or recommended changes you'd like to see (i.e. usage with other data types), please reach out via email (edwardbirdlab@gmail.com | edwardbird@ksu.edu) or <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.
+> Updates to BALROG-ISO may occur periodically to help continually improve the pipeline. If you have any requests or recommended changes you'd like to see (i.e. usage with other data types), please reach out via email (edwardbirdlab@gmail.com | edwardbird@ksu.edu) or <a href="https://github.com/edwardbirdlab/BALROG-ISO/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.
 > <br />
 ><br />
-> If you experience any trouble or find bugs when running BALROG-ISO, please <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=bug&template=bug-report---.md">report issues or bugs</a> and they will be addressed as soon as possible.
+> If you experience any trouble or find bugs when running BALROG-ISO, please <a href="https://github.com/edwardbirdlab/BALROG-ISO/issues/new?labels=bug&template=bug-report---.md">report issues or bugs</a> and they will be addressed as soon as possible.
 
 <h3 align="center">Not the BALROG pipeline you're looking for?</h3>
  <p align="center">
@@ -100,7 +96,7 @@ BALROG-ISO in its current form expects Illuminia/Aviti paired-end, short-read da
 <br />
 <br />
 > [!NOTE]
->**If you would like to run BALROG-ISO with long-read data, feel free to <a href="https://github.com/edwardbirdlab/HT-BALRROG/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
+>**If you would like to run BALROG-ISO with long-read data, feel free to <a href="https://github.com/edwardbirdlab/BALROG-ISO/issues/new?labels=enhancement&template=feature-request---.md">request feature</a>.**
 
 ### 2. Dependencies
 
@@ -118,12 +114,12 @@ Preferred Method - Download Release
    ```
 Method 2 - Clone Repo
    ```sh
-   git clone https://github.com/edwardbirdlab/BALROG-MON
+   git clone https://github.com/edwardbirdlab/BALROG-ISO
    ```
 
 ### 4. Creating a Sample Sheet
 
-BALROG-ISO takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. This verion does not automatically combine reads of the same sample name, please combine sequencing runs manually before starting the pipeline.
+BALROG-ISO takes a CSV (Comma-Seperated-Value) sheet as the input. Note that the "sample" column will be the prefix of all output files for that sample. _This version does not automatically combine reads of the same sample name, so please combine sequencing runs manually before starting the pipeline._
 <br />
 <br />
 Example Format:
@@ -144,27 +140,93 @@ When creating a Nextflow config, ensure a container runtime is enabled (Singular
 
 If you want to change any parameters of BALROG-ISO from its default options, they can be changed using the "nextflow.config" file, or via command line. Configurable parameters will be outlined in the detailed sections below, as well as in the config file.
 
-Required Paramters: <br />
-'--samplesheet /path/to/samplesheet' <br />
-'--run_name "NameOfRun"' <br />
+_Required Parameters_ <br />
+   ```sh
+  --samplesheet /path/to/samplesheet
+  --run_name "NameOfRun"
+   ```
 <br />
-Optional Paramaters <br />
-'--sequencing_adapter_type  illuminia' (illuminia, Aviti, Custom - Deualt: illuminia) - sets which adapter set to use <br />
-'--custom_sequencing_adapter_r1 "ATGCATGC"' (Defualt: NaN) - sequence of read 1 adapter <br />
-'--custom_sequencing_adapter_r2 "ATGCATGC"' (Defualt: NaN) - sequence of read 1 adapter <br />
-'--fastp_minlen 100' (Defualt: 100) - The minimum readlength <br />
-'--fastp_q 20' (Defualt: 20) - The minimum q-score threshold <br />
-'--busco_lineage bacteria_odb10' (Defualt: bacteria_odb10) - Sets which busco lineage to use, recommended to change if you have a expected taxon <br />
-'--amrfinder_lineage insert_examle' (Defualt: NaN) - Enables species specific modeles in AMRFinderPlus, see AMRFinder documentation for supported species and how to supply the name of them <br />
-'--resfinder_lineage insert_example' (Defualt: NaN) - Enables species specific modeles in ResFinder, see ResFinder documentation for supported species and how to supply the name of them <br />
- 
+
+_Optional Parameters_ <br />
+   ```sh
+  --sequencing_adapter_type illumina
+   ```
+         
+>> Defines which adapter set to use. <br />
+Default: illumina (options = illumina, aviti, custom) <br /> 
+
+
+   ```sh
+  --custom_sequencing_adapter_r1 "ATGCATGC"
+   ```
+
+>> Sequence of the read 1 adapter. <br />
+Default: NaN <br /> 
+
+   ```sh
+  --custom_sequencing_adapter_r2 "ATGCATGC"
+   ```
+
+>> Sequence of the read 2 adapter. <br />
+Default: NaN <br />
+
+   ```sh
+  --fastp_minlen 100
+   ```
+
+>> The minimum read length. <br />
+Default: 100 <br />
+
+   ```sh
+  --fastp_q 20
+   ```
+
+>> The minimum q-score threshold. <br />
+Default: 20 <br />
+
+   ```sh
+  --busco_lineage bacteria_odb10
+   ```
+
+>> Sets which BUSCO lineage to use. Recommend changing if you have an expected taxon. <br />
+Default: bacteria_odb10 <br />
+
+   ```sh
+  --params.plasmer_min_len = 500
+   ```
+
+>> Sets the minimum sequence length to be included in plasmid prediction. _Not recommended to lower below 500._ <br />
+Default = 500 <br />
+
+  ```sh
+  -- params.plasmer_max_len = 500000
+  ```      
+
+>> Sets the sequence length above which longer sequences are automatically predicted to be chromosomal in origin. <br />
+Default = 500000 <br />
+
+  ```sh
+  --amrfinder_lineage Escherichia
+  ```      
+
+>> Enables species-specific models in AMRFinderPlus. See AMRFinder documentation for supported species and how to supply the name of them. <br />
+Default: NaN <br />      
+
+
+  ```sh
+  --resfinder_lineage "Escherichia coli"
+  ```    
+
+>> Enables species-specific models in ResFinder. See ResFinder documentation for supported species and how to supply the name of them. <br />
+Default: NaN <br />
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a name="readme-running-balrog"></a>
 <!-- RUNNING BALROG-ISO -->
 ## Running BALROG-ISO
 
-1. Running the whole pipeline
+1. Running the Whole Pipeline
 ```sh
 nextflow run /path/to/edwardbirdlab/BALROG-MON -c /path/to/config.cfg
 ```
@@ -183,6 +245,10 @@ nextflow run /path/to/edwardbirdlab/BALROG-MON -c /path/to/config.cfg --workflow
 _**Raw QC**_
 
 - [FastQC](https://github.com/s-andrews/FastQC) : Raw Read
+
+_**Human Read Removal Tool**_
+
+- [sra-human-scrubber](https://github.com/ncbi/sra-human-scrubber) : Masks human sequences in data
 
 _**Trimming**_
 
@@ -214,10 +280,6 @@ _**Genome Completeness**_
 _**Sequence Origin Assignment**_
 - [Plasmer](https://github.com/nekokoe/Plasmer) : Plasmid prediction
     <br />
-    _Parameters_
-    - params.plasmer_min_len = (defualt = 500)
-       
-    - params.plasmer_max_len = (defualt = 500000)
 
 _**Functional Genome Annotation**_
 - [Prokka](https://github.com/tseemann/prokka)
@@ -252,7 +314,7 @@ Many tools are used in this pipeline and its respective options. See 'CITATION.m
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/edwardbirdlab/HT-BALRROG/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/edwardbirdlab/BALROG-ISO/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -264,7 +326,7 @@ See the [open issues](https://github.com/edwardbirdlab/HT-BALRROG/issues) for a 
 <!-- LICENSE -->
 ## License
 
-Distributed for the [USDA ARS](https://www.ars.usda.gov/) under the Public Domain. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -279,16 +341,16 @@ Edward Bird -  - edwardbirdlab@gmail.com  |  edwardbird@ksu.edu
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/edwardbirdlab/HT-BALRROG.svg?style=for-the-badge
-[contributors-url]: https://github.com/edwardbirdlab/HT-BALRROG/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/edwardbirdlab/HT-BALRROG.svg?style=for-the-badge
-[forks-url]: https://github.com/edwardbirdlab/HT-BALRROG/network/members
-[stars-shield]: https://img.shields.io/github/stars/edwardbirdlab/HT-BALRROG.svg?style=for-the-badge
-[stars-url]: https://github.com/edwardbirdlab/HT-BALRROG/stargazers
-[issues-shield]: https://img.shields.io/github/issues/edwardbirdlab/HT-BALRROG.svg?style=for-the-badge
-[issues-url]: https://github.com/edwardbirdlab/HT-BALRROG/issues
-[license-shield]: https://img.shields.io/github/license/edwardbirdlab/HT-BALRROG.svg?style=for-the-badge
-[license-url]: https://github.com/edwardbirdlab/HT-BALRROG/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/edwardbirdlab/BALROG-ISO.svg?style=for-the-badge
+[contributors-url]: https://github.com/edwardbirdlab/BALROG-ISO/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/edwardbirdlab/BALROG-ISO.svg?style=for-the-badge
+[forks-url]: https://github.com/edwardbirdlab/BALROG-ISO/network/members
+[stars-shield]: https://img.shields.io/github/stars/edwardbirdlab/BALROG-ISO.svg?style=for-the-badge
+[stars-url]: https://github.com/edwardbirdlab/BALROG-ISO/stargazers
+[issues-shield]: https://img.shields.io/github/issues/edwardbirdlab/BALROG-ISO.svg?style=for-the-badge
+[issues-url]: https://github.com/edwardbirdlab/BALROG-ISO/issues
+[license-shield]: https://img.shields.io/github/license/edwardbirdlab/BALROG-ISO.svg?style=for-the-badge
+[license-url]: https://github.com/edwardbirdlab/BALROG-ISO/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [Nextflow-url]: https://nextflow.io
