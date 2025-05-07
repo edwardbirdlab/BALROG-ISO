@@ -1,9 +1,9 @@
-# edwardbirdlab/BALROG-MON: Citations
+# edwardbirdlab/BALROG-ISO: Citations
 
-## BALROG-MON
-[Code Repository](https://github.com/edwardbirdlab/BALROG-MON)
+## BALROG-ISO
+[Code Repository](https://github.com/edwardbirdlab/BALROG-ISO)
 
-> If using BALROG-MON please cite the [GitHub page](https://github.com/edwardbirdlab/BALROG-MON) and/or the publication below. Also, feel free to contact me (edwardbirdlab@gmail.com | edwardbird@ksu.edu) to let me know!
+> If using BALROG-ISO please cite the [GitHub page](https://github.com/edwardbirdlab/BALROG-ISO) and/or the publication below. Also, feel free to contact me (edwardbirdlab@gmail.com | edwardbird@ksu.edu) to let me know!
 
 > 
 
@@ -19,12 +19,6 @@
 
     > Feldgarden, M., Brover, V., Gonzalez-Escalona, N., Frye, J. G., Haendiges, J., Haft, D. H., ... & Klimke, W. (2021). AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. _Scientific Reports, 11_(1), 12728. https://doi.org/10.1038/s41598-021-91456-0
 
-- **Bracken**
-
-    [Code Repository](https://github.com/jenniferlu717/Bracken) | [Webpages](https://ccb.jhu.edu/software/bracken/)
-
-    > Lu, J., Breitwieser, F. P., Thielen, P., & Salzberg, S. L. (2017). Bracken: estimating species abundance in metagenomics data. _PeerJ Computer Science, 3_, e104. https://doi.org/10.7717/peerj-cs.104
-
 - **BUSCO: Benchmarking Universal Single-Copy Orthologue toolkit**
 
    [Code Repository](https://gitlab.com/ezlab/busco) | [Webpages](https://busco.ezlab.org/)
@@ -37,17 +31,13 @@
 
   > Alcock, B. P., Huynh, W., Chalil, R., Smith, K. W., Raphenya, A. R., Wlodarski, M. A., ... & McArthur, A. G. (2023). CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. _Nucleic Acids Research, 51_(D1), D690-D699. https://doi.org/10.1093/nar/gkac920
 
-- **CheckM**
+- **fastp**
   
-  [Code Repository](https://github.com/Ecogenomics/CheckM) | [Webpages](https://ecogenomics.github.io/CheckM/)
+  [Code Repository](https://github.com/OpenGene/fastp)
 
-  > Parks, D. H., Imelfort, M., Skennerton, C. T., Hugenholtz, P., & Tyson, G. W. (2015). CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes. _Genome Research, 25_(7), 1043-1055. http://www.genome.org/cgi/doi/10.1101/gr.186072.114.
-
-- **chopper**
+  > Chen, S. (2023). Ultrafast one-pass FASTQ data preprocessing, quality control, and deduplication using fastp. _iMeta 2_, e107. https://doi.org/10.1002/imt2.107
   
-  [Code Repository](https://github.com/wdecoster/chopper)
-
-  > De Coster, W., & Rademakers, R. (2023). NanoPack2: population-scale evaluation of long-read sequencing data. _Bioinformatics, 39_(5), btad311. https://doi.org/10.1093/bioinformatics/btad311
+  > Chen, S., Zhou, Y., Chen, Y., & Gu, J. (2018). fastp: an ultra-fast all-in-one FASTQ preprocessor. _Bioinformatics, 34_(17), i884–i890. https://doi.org/10.1093/bioinformatics/bty560
 
 - **FastQC**
   
@@ -75,35 +65,15 @@
   
   > Chaumeil, P. A., Mussig, A. J., Hugenholtz, P., & Parks, D. H. (2020). GTDB-Tk: a toolkit to classify genomes with the Genome Taxonomy Database. _Bioinformatics, 36_(6), 1925-1927. https://doi.org/10.1093/bioinformatics/btz848
 
-- **Kracken 2**
+- **hAMRonization**
   
-  [Code Repository](https://github.com/DerrickWood/kraken2) | [Webpages](https://ccb.jhu.edu/software/kraken2/)
+  [Code Repository](https://github.com/pha4ge/hAMRonization)
 
-  > Lu, J., Rincon, N., Wood, D. E., Breitwieser, F. P., Pockrandt, C., Langmead, B., ... & Steinegger, M. (2022). Metagenome analysis using the Kraken software suite. _Nature Protocols, 17_(12), 2815-2839. https://doi.org/10.1038/s41596-022-00738-y
+  > Mendes, I., Griffiths, E., Manuele, A., Fornika, D., Tausch, S. H., Le-Viet, T., ... & Maguire, F. 2024. hAMRonization: Enhancing antimicrobial resistance prediction using the PHA4GE AMR detection specification and tooling. _bioRxiv_, preprint. https://doi.org/10.1101/2024.03.07.583950
+
+- **HRRT: Human Read Remover Tool**
   
-  > Wood, D. E., Lu, J., & Langmead, B. (2019). Improved metagenomic analysis with Kraken 2. _Genome Biology, 20_, 1-13. https://doi.org/10.1186/s13059-019-1891-0
-
-- **LRBinner**
-  
-  [Code Repository](https://github.com/anuradhawick/LRBinner)
-
-  > Wickramarachchi, A., & Lin, Y. (2021). LRBinner: binning long reads in metagenomics datasets. In _21st International Workshop on Algorithms in Bioinformatics (WABI 2021): Leibniz International Proceedings in Informatics (LIPIcs) 201_, 11:1-11:18. https://10.4230/LIPIcs.WABI.2021.11
-  
-  > Wickramarachchi, A., & Lin, Y. (2022). Binning long reads in metagenomics datasets using composition and coverage information. _Algorithms for Molecular Biology, 17_(1), 14. https://doi.org/10.1186/s13015-022-00221-z
-
-- **metaFlye**
-  
-  [Code Repository](https://github.com/mikolmogorov/Flye)
-
-  > Kolmogorov, M., Bickhart, D. M., Behsaz, B., Gurevich, A., Rayko, M., Shin, S. B., ... & Pevzner, P. A. (2020). metaFlye: scalable long-read metagenome assembly using repeat graphs. _Nature Methods, 17_(11), 1103-1110. https://doi.org/10.1038/s41592-020-00971-x
-
-- **minimap2**
-  
-  [Code Repository](https://github.com/lh3/minimap2) | [Webpages](https://lh3.github.io/minimap2/)
-
-  > Li, H. (2021). New strategies to improve minimap2 alignment accuracy. _Bioinformatics, 37_(23), 4572-4574. https://doi.org/10.1093/bioinformatics/btab705
-  
-  > Li, H. (2018). Minimap2: pairwise alignment for nucleotide sequences. _Bioinformatics, 34_(18), 3094-3100. https://doi.org/10.1093/bioinformatics/bty191
+  [Code Repository](https://github.com/ncbi/sra-human-scrubber) | [Webpages](https://ncbiinsights.ncbi.nlm.nih.gov/2023/02/02/scrubbing-human-sequences-sra-submissions/)
 
 - **MultiQC**
   
@@ -117,11 +87,11 @@
 
   > Zhu, Q., Gao, S., Xiao, B., He, Z., & Hu, S. (2023). Plasmer: an accurate and sensitive bacterial plasmid prediction Tool Based on Machine Learning of Shared k-mers and genomic features. _Microbiology Spectrum, 11_(3), e04645-22. https://doi.org/10.1128/spectrum.04645-22
 
-- **Porechop**
+- **Prokka: rapid prokaryotic genome annotation**
   
-  [Code Repository](https://github.com/rrwick/Porechop)
+  [Code Repository](https://github.com/tseemann/prokka) 
 
-  > Wick, R. R., Judd, L. M., Gorrie, C. L., & Holt, K. E. (2017). Completing bacterial genome assemblies with multiplex MinION sequencing. Microbial genomics, 3(10), e000132. https://doi.org/10.1099/mgen.0.000132
+  > Seemann, T. (2014). Prokka: rapid prokaryotic genome annotation. _Bioinformatics 30_(14), 2068-2069. https://doi.org/10.1093/bioinformatics/btu153
 
 - **QUAST: Quality Assessment Tool for Genome Assemblies**
 
@@ -141,17 +111,11 @@
 
   > Alcock, B. P., Huynh, W., Chalil, R., Smith, K. W., Raphenya, A. R., Wlodarski, M. A., ... & McArthur, A. G. (2023). CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. _Nucleic Acids Research, 51_(D1), D690-D699. https://doi.org/10.1093/nar/gkac920
 
-- **SAMtools**
+- **SPAdes: St. Petersburg genome assembler**
   
-  [Code Repository](https://github.com/samtools/samtools) | [Webpages](https://www.htslib.org/)
+  [Code Repository](https://github.com/ablab/spades) | [Webpages](https://ablab.github.io/spades/)
 
-  > Danecek, P., Bonfield, J. K., Liddle, J., Marshall, J., Ohan, V., Pollard, M. O., ... & Li, H. (2021). Twelve years of SAMtools and BCFtools. _Gigascience, 10_(2), giab008. https://doi.org/10.1093/gigascience/giab008
-
-- **seqtk**
-  
-  [Code Repository](https://github.com/lh3/seqtk) | [Webpages](https://docs.csc.fi/apps/seqtk/)
-
-  > Li, H. (2023). seqtk-1.4 [Computer Software]. Retrieved from https://github.com/lh3/seqtk
+  > Prjibelski, A., Antipov, D., Meleshko, D., Lapidus, A., & Korobeynikov, A. (2020). Using SPAdes de novo assembler. _Current Protocols in Bioinformatics 70_(1), e102. https://doi.org/10.1002/cpbi.102
 
 ## Python Packages
 - **Python**
@@ -177,12 +141,6 @@
   [Code Repository](https://github.com/pandas-dev/pandas) | [Webpages](https://pandas.pydata.org/)
   
   > McKinney, W. (2011). pandas: a foundational Python library for data analysis and statistics. _Python for High Performance and Scientific Computing, 14_(9), 1-9. https://www.researchgate.net/publication/265194455
-  
-- **seaborn**
-  
-  [Code Repository](https://github.com/mwaskom/seaborn) | [Webpages](https://seaborn.pydata.org/)
-  
-  > Waskom, M. L. (2021). Seaborn: statistical data visualization. _Journal of Open Source Software, 6_(60), 3021. https://doi.org/10.21105/joss.03021
 
 
 ## Software Packaging/Containerisation Tools
