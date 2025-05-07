@@ -1,7 +1,7 @@
-# edwardbirdlab/BALROG-MON: Citations
+# edwardbirdlab/BALROG-ISO: Citations
 
-## BALROG-MON
-[Code Repository](https://github.com/edwardbirdlab/BALROG-MON)
+## BALROG-ISO
+[Code Repository](https://github.com/edwardbirdlab/BALROG-ISO)
 
 > If using BALROG-ISO please cite the [GitHub page](https://github.com/edwardbirdlab/BALROG-ISO) and/or the publication below. Also, feel free to contact me (edwardbirdlab@gmail.com | edwardbird@ksu.edu) to let me know!
 
@@ -31,6 +31,14 @@
 
   > Alcock, B. P., Huynh, W., Chalil, R., Smith, K. W., Raphenya, A. R., Wlodarski, M. A., ... & McArthur, A. G. (2023). CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. _Nucleic Acids Research, 51_(D1), D690-D699. https://doi.org/10.1093/nar/gkac920
 
+- **fastp**
+  
+  [Code Repository](https://github.com/OpenGene/fastp)
+
+  > Chen, S. (2023). Ultrafast one-pass FASTQ data preprocessing, quality control, and deduplication using fastp. _iMeta 2_, e107. https://doi.org/10.1002/imt2.107
+  
+  > Chen, S., Zhou, Y., Chen, Y., & Gu, J. (2018). fastp: an ultra-fast all-in-one FASTQ preprocessor. _Bioinformatics, 34_(17), i884–i890. https://doi.org/10.1093/bioinformatics/bty560
+
 - **FastQC**
   
   [Code Repository](https://github.com/s-andrews/FastQC) | [Webpages](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -57,6 +65,16 @@
   
   > Chaumeil, P. A., Mussig, A. J., Hugenholtz, P., & Parks, D. H. (2020). GTDB-Tk: a toolkit to classify genomes with the Genome Taxonomy Database. _Bioinformatics, 36_(6), 1925-1927. https://doi.org/10.1093/bioinformatics/btz848
 
+- **hAMRonization**
+  
+  [Code Repository](https://github.com/pha4ge/hAMRonization)
+
+  > Mendes, I., Griffiths, E., Manuele, A., Fornika, D., Tausch, S. H., Le-Viet, T., ... & Maguire, F. 2024. hAMRonization: Enhancing antimicrobial resistance prediction using the PHA4GE AMR detection specification and tooling. _bioRxiv_, preprint. https://doi.org/10.1101/2024.03.07.583950
+
+- **HRRT: Human Read Remover Tool**
+  
+  [Code Repository](https://github.com/ncbi/sra-human-scrubber) | [Webpages](https://ncbiinsights.ncbi.nlm.nih.gov/2023/02/02/scrubbing-human-sequences-sra-submissions/)
+
 - **MultiQC**
   
   [Code Repository](https://github.com/MultiQC/MultiQC) | [Webpages](https://multiqc.info/)
@@ -68,6 +86,12 @@
   [Code Repository](https://github.com/nekokoe/Plasmer) 
 
   > Zhu, Q., Gao, S., Xiao, B., He, Z., & Hu, S. (2023). Plasmer: an accurate and sensitive bacterial plasmid prediction Tool Based on Machine Learning of Shared k-mers and genomic features. _Microbiology Spectrum, 11_(3), e04645-22. https://doi.org/10.1128/spectrum.04645-22
+
+- **Prokka: rapid prokaryotic genome annotation**
+  
+  [Code Repository](https://github.com/tseemann/prokka) 
+
+  > Seemann, T. (2014). Prokka: rapid prokaryotic genome annotation. _Bioinformatics 30_(14), 2068-2069. https://doi.org/10.1093/bioinformatics/btu153
 
 - **QUAST: Quality Assessment Tool for Genome Assemblies**
 
@@ -87,11 +111,11 @@
 
   > Alcock, B. P., Huynh, W., Chalil, R., Smith, K. W., Raphenya, A. R., Wlodarski, M. A., ... & McArthur, A. G. (2023). CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. _Nucleic Acids Research, 51_(D1), D690-D699. https://doi.org/10.1093/nar/gkac920
 
-- **seqtk**
+- **SPAdes: St. Petersburg genome assembler**
   
-  [Code Repository](https://github.com/lh3/seqtk) | [Webpages](https://docs.csc.fi/apps/seqtk/)
+  [Code Repository](https://github.com/ablab/spades) | [Webpages](https://ablab.github.io/spades/)
 
-  > Li, H. (2023). seqtk-1.4 [Computer Software]. Retrieved from https://github.com/lh3/seqtk
+  > Prjibelski, A., Antipov, D., Meleshko, D., Lapidus, A., & Korobeynikov, A. (2020). Using SPAdes de novo assembler. _Current Protocols in Bioinformatics 70_(1), e102. https://doi.org/10.1002/cpbi.102
 
 ## Python Packages
 - **Python**
